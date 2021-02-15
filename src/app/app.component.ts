@@ -19,21 +19,20 @@ import { TemplateProviderComponent } from "./template-provider.component";
 
     Smth
     <ng-container *ngIf="(showHide | async)">
-      <ng-container *ngTemplateOutlet="template"></ng-container>
+      <ng-container
+        *ngTemplateOutlet="templateComponent.template"
+      ></ng-container>
     </ng-container>
-  `,
-  styleUrls: ["./app.component.css"]
+  `
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   @ViewChild("templateComponent")
   templateComponent: TemplateProviderComponent;
 
-  showHide = interval(3000).pipe(map((v, i) => i % 2 === 0));
+  showHide = interval(2000).pipe(map((v, i) => i % 2 === 0));
   template: TemplateRef<unknown>;
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.template = this.templateComponent.template;
-    }, 1000);
-  }
+  // ngAfterViewInit() {
+  // this.template = this.templateComponent.template;
+  // }
 }

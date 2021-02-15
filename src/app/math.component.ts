@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core";
 
 @Component({
-  selector: "vim-math",
+  selector: "app-math",
   template: `
     <div #trackMe>
       <div>From Ng Content</div>

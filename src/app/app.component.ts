@@ -14,11 +14,11 @@ import { TemplateProviderComponent } from "./template-provider.component";
   selector: "my-app",
   template: `
     <template-provider #templateComponent>
-      <vim-math></vim-math>
+      <app-math></app-math>
     </template-provider>
 
     Smth
-    <ng-container *ngIf="(showHide$ | async)">
+    <ng-container *ngIf="(showHide | async)">
       <ng-container *ngTemplateOutlet="template"></ng-container>
     </ng-container>
   `,
@@ -28,7 +28,7 @@ export class AppComponent implements AfterViewInit {
   @ViewChild("templateComponent")
   templateComponent: TemplateProviderComponent;
 
-  showHide$ = interval(3000).pipe(map((v, i) => i % 2 === 0));
+  showHide = interval(3000).pipe(map((v, i) => i % 2 === 0));
   template: TemplateRef<unknown>;
 
   ngAfterViewInit() {

@@ -16,8 +16,7 @@ import { TemplateProviderComponent } from "./template-provider.component";
     <template-provider #templateComponent>
       <app-math></app-math>
     </template-provider>
-
-    Smth
+    app-math component renders below:
     <ng-container *ngIf="(showHide | async)">
       <ng-container
         *ngTemplateOutlet="templateComponent.template"

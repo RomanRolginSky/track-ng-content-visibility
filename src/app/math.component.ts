@@ -17,11 +17,16 @@ export class MathComponent implements AfterViewInit {
     const observer = new MutationObserver(function(mutationsList) {
       console.log("callback that runs when observer is triggered");
       console.log(mutationsList);
+      this.funcToCallOnAttach();
     });
 
     observer.observe(this.trackMeElement.nativeElement, {
       subtree: true,
       childList: true
     });
+  }
+
+  private funcToCallOnAttach(): void {
+    alert("Success");
   }
 }
